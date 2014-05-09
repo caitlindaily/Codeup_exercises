@@ -49,7 +49,7 @@ if ($b > $a) {
     // output the appropriate result
     echo "$b is greater than $a\n";
 }else { 
-    	echo "$b is less than $a\n";
+    echo "$b is less than $a\n";
 }
 
 // Shorten the next 2 statements into an if/else

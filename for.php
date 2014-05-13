@@ -7,10 +7,17 @@ $start = (int)fgets(STDIN);
 fwrite (STDOUT, 'Choose an ending number. ');
 
 $end = (int)fgets(STDIN);
-$increment = 1;
+
+fwrite (STDOUT, 'How would you like to increment? By... ');
+
+$increment = (int)fgets(STDIN);
+
+if ($increment == "\n") {
+	$increment ++ ;
+};
 
 
-for($start ; $start <= $end; $start+= $increment) {
+for($start ; $start <= $end; $start += $increment) {
 	echo "{$start}\n";
 };	
 

@@ -31,8 +31,11 @@ $books = [
 
 
 foreach ($books as $titles => $details) {
-	echo "$titles was published in " . $details['published'] . " and was written by " . $details['author'] . " and has " .
-	$details['pages'] . " pages.\n\n";
+	foreach ($details as $attribute => $value) {
+		if ($value > 1950) {
+			echo "$titles\n\n";
+		}
+	}
 }
 
 

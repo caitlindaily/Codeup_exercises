@@ -2,22 +2,33 @@
 //Ask user for their numbers
 fwrite (STDOUT, 'Choose a beginning number. ');
 //Display all numbers in perameters user chose
-$start = (int)fgets(STDIN);
+$start = trim(fgets(STDIN));
+
+if (!is_numeric($start)) {
+	echo "Please use numeric value. ";
+	exit;
+};
 
 fwrite (STDOUT, 'Choose an ending number. ');
 
-$end = (int)fgets(STDIN);
+$end = trim(fgets(STDIN));
+
+if (!is_numeric($end)) {
+	echo "Please use numeric value. ";
+	exit;
+};	
 
 fwrite (STDOUT, 'How would you like to increment? By... ');
 
-$increment = (int)fgets(STDIN);
+$increment = trim(fgets(STDIN));
 
 if ($increment == "\n") {
 	$increment ++ ;
 };
 
 
-for($start ; $start <= $end; $start += $increment) {
-	echo "{$start}\n";
+for($i = $start ; $i <= $end; $i += $increment) {
+	echo "{$i}\n";
 };	
+
 

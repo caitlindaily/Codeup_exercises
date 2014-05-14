@@ -12,13 +12,16 @@ foreach ($things as $thing) {
 	}elseif (is_bool($thing)) {
 		echo "{$thing}\n";
 	}elseif (is_array($thing)) {
+		foreach ($thing as $item){
 		echo "{$thing}\n";
+	}
 	}elseif (is_null($thing)) {
 		echo "{$thing}\n";
 	}elseif (is_string($thing)) {
 		echo "{$thing}\n";
 	}
 }
+
 
 // //Construct a loop that iterates through each value and outputs its type as either integer, float, boolean, array, null, or string.
 

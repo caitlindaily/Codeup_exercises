@@ -30,10 +30,10 @@ $books = [
 
 
 
-foreach ($books as $titles => $details) {
+foreach ($books as $book => $details) {
 	foreach ($details as $attribute => $value) {
 		if ($value > 1950) {
-			echo "$titles\n\n";
+			echo "$book\n\n";
 		}
 	}
 }

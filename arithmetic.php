@@ -2,33 +2,69 @@
 
 
 function add($a, $b) {
-    echo $a + $b . PHP_EOL;
+    if (is_numeric($a) && is_numeric($b)) {
+    	echo $a + $b . PHP_EOL;
+    }else {
+    	echo "ERROR: Must use numeric values.\n";
+	}
 }
 
 function subtract($a, $b) {
-    // Add code here
-    echo $a - $b . PHP_EOL;
+   if (is_numeric($a) && is_numeric($b)) {
+    	echo $a - $b . PHP_EOL;
+    }else {
+    	echo "ERROR: Must use numeric values.\n";
+	}
 }
-
 
 function multiply($a, $b) {
-    // Add code here
-    echo $a * $b . PHP_EOL;
+   if (is_numeric($a) && is_numeric($b)) {
+    	echo $a * $b . PHP_EOL;
+    }else {
+    	echo "ERROR: Must use numeric values.\n";
+	}
 }
-
-
 function divide($a, $b) {
-    // Add code here
-    echo $a / $b . PHP_EOL;
+   if (is_numeric($a) && is_numeric($b)) {
+    	echo $a / $b . PHP_EOL;
+    }else {
+    	echo "ERROR: Must use numeric values.\n";
+	}
 }
-
-
 function modulus($a, $b) {
-	echo $a % $b . PHP_EOL;
+   if (is_numeric($a) && is_numeric($b)) {
+    	echo $a % $b . PHP_EOL;
+    }else {
+    	echo "ERROR: Must use numeric values.\n";
+	}
 }
-
-add(3,5);
-subtract(3,5);
-multiply(3,5);
-divide(3,5);
+add(3,"7");
+subtract(3,'hello');
+multiply(TRUE,5);
+divide(3,false);
 modulus(3,5);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

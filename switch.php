@@ -14,35 +14,35 @@
 //         // Output Tuesday
 //     // etc through day 7
 // }
-// date_default_timezone_set('America/Chicago');
+date_default_timezone_set('America/Chicago');
 
-// $day_of_week = date(6);
+$day_of_week = date(6);
 
-// switch($day_of_week) {
-// 	case '1':
-// 		echo "Monday\n";
-// 		break;
-// 	case '2':
-// 		echo "Tuesday\n";
-// 		break;
-// 	case '3':
-// 		echo "Wednesday\n";
-// 		break;	
-// 	case '4':
-// 		echo "Thursday\n";
-// 		break;
-// 	case '5';
-// 		echo "Friday\n";
-// 		break;		
-// 	case '6':
-// 		echo "Saturday\n";
-// 		break;
-// 	case '7':
-// 		echo "Sunday\n";
-// 		break;
-// 	default:
-// 		echo "America/Chicago";			
-// }    
+switch($day_of_week) {
+	case '1':
+		echo "Monday\n";
+		break;
+	case '2':
+		echo "Tuesday\n";
+		break;
+	case '3':
+		echo "Wednesday\n";
+		break;	
+	case '4':
+		echo "Thursday\n";
+		break;
+	case '5';
+		echo "Friday\n";
+		break;		
+	case '6':
+		echo "Saturday\n";
+		break;
+	case '7':
+		echo "Sunday\n";
+		break;
+	default:
+		echo "America/Chicago";			
+}    
 
 //Test and verify the results before proceeding by creating a matching 'if' block. The output should be identical.
 

@@ -18,15 +18,17 @@
 //=============================================================
 function humanized_list($string, $sort = false)
 {
-	$physics_array = explode(', ', $string);
-	if ($sort == 'sort') {
-		sort($physics_array);
+	$array = explode(', ', $string);
+	
+	if ($sort == 'sort') 
+	{
+		sort($array);
 	}	
-	$last_item = array_pop($physics_array);
+	$last_item = array_pop($array);
 
-	$physics_string = implode(',', $physics_array);
+	$final_string = implode(',', $array);
 
-	return $physics_string . ' and ' . $last_item;
+	return $final_string . ' and ' . $last_item;
 }
 
 $physicists_string = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mallory, Bruce Banner, Tony Stark';

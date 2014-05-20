@@ -16,12 +16,12 @@
 
 // echo $new_string . PHP_EOL;
 //=============================================================
-function humanized_list($string)
+function humanized_list($string, $sort = false)
 {
 	$physics_array = explode(', ', $string);
-
-	sort($physics_array);
-
+	if ($sort == 'sort') {
+		sort($physics_array);
+	}	
 	$last_item = array_pop($physics_array);
 
 	$physics_string = implode(',', $physics_array);
@@ -31,7 +31,7 @@ function humanized_list($string)
 
 $physicists_string = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mallory, Bruce Banner, Tony Stark';
 
-$famous_fake_physicists = humanized_list($physicists_string);
+$famous_fake_physicists = humanized_list($physicists_string, sort);
 
 	echo "Some of the most famous fictional theoretical physicists are $famous_fake_physicists.\n";
 

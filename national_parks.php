@@ -12,20 +12,18 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $nextPage = $page + 1;
 $prevPage = $page - 1;
 
+$offset = ($page - 1) * 4;
 
-function getParks($dbc) {
+	
+$stmt = $dbc->prepare('SELECT * FROM national_parks LIMIT :limit OFFSET :offset');
 
-	return $dbc->query('SELECT * FROM national_parks LIMIT 4 OFFSET ' . getOffset())->fetchAll(PDO::FETCH_ASSOC);
-}
+$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 
-function getOffset () {
+$stmt->execute();
 
-	if (isset($_GET['page'])) {
-	   $page = $_GET['page'];
-	} else {
-	   $page = 1;
-	} return ($page - 1) * 4;
-}
+$getParks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -44,14 +42,15 @@ function getOffset () {
 		<tr>
 			<td>ID</td>
 			<td>Name</td>
+			<td>Description</td>
 			<td>Location</td>
 			<td>Date Established</td>
 			<td>Acres</td>
 		<tr/>
-		<? foreach (getParks($dbc) as $rows) : ?>
+		<? foreach ($getParks as $rows) : ?>
 		<tr>	
 			<? foreach ($rows as $park) : ?>
-			<td><?= "{$park}"?></td>
+			<td><?= "{$park}" ?></td>
 			<? endforeach; ?>
 		</tr>		
 		<? endforeach; ?>

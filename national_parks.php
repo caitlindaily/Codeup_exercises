@@ -24,6 +24,32 @@ $stmt->execute();
 
 $getParks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
+if (!empty($_POST)) {
+	try	{
+		foreach($_POST as $key => $value) {
+			if($value == '') {
+				throw new Exception("Please fill out section '{$key}'.");
+			}	
+		} 
+		$parks[] = $_POST;
+		$query = "INSERT INTO national_parks (name, description, location, date_established, area_in_acres) VALUES (:name, :description, :location, :date_established, :area_in_acres)";
+		$stmt = $dbc->prepare($query);
+
+		foreach ($parks as $park) {
+
+			$stmt->bindValue(':name', $park['name'], PDO::PARAM_STR);
+			$stmt->bindValue(':description', $park['description'], PDO::PARAM_STR);
+			$stmt->bindValue(':location', $park['location'], PDO::PARAM_STR);
+			$stmt->bindValue(':date_established', $park['date_established'], PDO::PARAM_STR);
+			$stmt->bindValue(':area_in_acres', $park['area_in_acres'], PDO::PARAM_INT);
+
+			$stmt->execute();
+		}
+	} catch (Exception $e) {
+		$msg = $e->getMessage() . PHP_EOL;
+	}	
+}	
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +60,10 @@ $getParks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	<title>National Parks</title>
 </head>
 <body>
+	<!--Error Message-->
+	<? if(isset($msg)) : ?>
+		<h3><?= $msg; ?></h3>
+	<? endif; ?>
 	
 	<!-- Table -->
 	<div class="container">
@@ -69,7 +99,24 @@ $getParks = $stmt->fetchAll(PDO::FETCH_ASSOC);
   			<li class="active"><a href="/national_parks.php?page=<?= $prevPage; ?>">Previous</a></li>
 		<?endif; ?>
   	</ul>
-	</div>	
+	</div>
+
+	<!--Form-->
+	<p>
+	<form method="POST" action="/national_parks.php">
+		<label for="name"></label>
+			<input id="name" name="name" type="text" placeholder="Park Name">
+		<label for="description"></label>
+			<input id="description" name="description" type="text" placeholder="Description">
+		<label for="location"></label>
+			<input id="location" name="location" type="text" placeholder="Location">
+		<label for="date_established"></label>
+			<input id="date_established" name="date_established" type="text" placeholder="Date Est. yyyy-mm-dd">
+		<label for="area_in_acres"></label>
+			<input id="area_in_acres" name="area_in_acres" type="text" placeholder="Acreage">
+		<button type="submit">Submit</button>
+	</form>
+	</p>
 </body>
 </html>
 

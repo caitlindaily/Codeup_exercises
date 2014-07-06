@@ -6,7 +6,6 @@ $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 
-
 // // Create the query and assign to var
 // $query = 'CREATE TABLE national_parks (
 //     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -17,7 +16,6 @@ echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 //     area_in_acres  INT,
 //     PRIMARY KEY (id)
 // )';
-
 // // // Run query, if there are errors they will be thrown as PDOExceptions
 // $dbc->exec($query);
 
@@ -39,13 +37,10 @@ $stmt = $dbc->prepare($query);
 
 foreach ($parks as $park) {
 
-    $stmt->bindValue(':name', $park['name'], PDO::PARAM_STR);
-    $stmt->bindValue(':description', $park['description'], PDO::PARAM_STR);
-    $stmt->bindValue(':location', $park['location'], PDO::PARAM_STR);
-    $stmt->bindValue(':date_established', $park['date_established'], PDO::PARAM_STR);
-    $stmt->bindValue(':area_in_acres', $park['area_in_acres'], PDO::PARAM_INT);
-
-    $stmt->execute();
-
-    echo "Inserted ID: " . $dbc->lastInsertId() . PHP_EOL;
+  $stmt->bindValue(':name', $park['name'], PDO::PARAM_STR);
+  $stmt->bindValue(':description', $park['description'], PDO::PARAM_STR);
+  $stmt->bindValue(':location', $park['location'], PDO::PARAM_STR);
+  $stmt->bindValue(':date_established', $park['date_established'], PDO::PARAM_STR);
+  $stmt->bindValue(':area_in_acres', $park['area_in_acres'], PDO::PARAM_INT);
+  $stmt->execute();
 }

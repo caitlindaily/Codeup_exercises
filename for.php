@@ -5,8 +5,8 @@ fwrite (STDOUT, 'Choose a beginning number. ');
 $start = trim(fgets(STDIN));
 
 if (!is_numeric($start)) {
-	echo "Please use numeric value. ";
-	exit;
+  echo "Please use numeric value. ";
+  exit;
 };
 
 fwrite (STDOUT, 'Choose an ending number. ');
@@ -14,8 +14,8 @@ fwrite (STDOUT, 'Choose an ending number. ');
 $end = trim(fgets(STDIN));
 
 if (!is_numeric($end)) {
-	echo "Please use numeric value. ";
-	exit;
+  echo "Please use numeric value. ";
+  exit;
 };	
 
 fwrite (STDOUT, 'How would you like to increment? By... ');
@@ -23,12 +23,12 @@ fwrite (STDOUT, 'How would you like to increment? By... ');
 $increment = trim(fgets(STDIN));
 
 if ($increment == "\n") {
-	$increment ++ ;
+  $increment ++ ;
 };
 
 
 for($i = $start ; $i <= $end; $i += $increment) {
-	echo "{$i}\n";
+  echo "{$i}\n";
 };	
 
 

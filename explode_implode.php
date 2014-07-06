@@ -1,20 +1,20 @@
 <?php
 
-// $physicists_string = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mallory, Bruce Banner, Tony Stark';
+$physicists_string = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mallory, Bruce Banner, Tony Stark';
 
-// echo $physicists_string . PHP_EOL;
+echo $physicists_string . PHP_EOL;
 
-// $now_array = explode(', ', $physicists_string);
+$now_array = explode(', ', $physicists_string);
 
-// print_r($now_array) . PHP_EOL;
+print_r($now_array) . PHP_EOL;
 //============================================================
-// $physicists_array = ['Gordon Freeman', 'Samantha Carter', 'Sheldon Cooper', 'Quinn Mallory', 'Bruce Banner', 'Tony Stark'];
+$physicists_array = ['Gordon Freeman', 'Samantha Carter', 'Sheldon Cooper', 'Quinn Mallory', 'Bruce Banner', 'Tony Stark'];
 
-// print_r($physicists_array);
+print_r($physicists_array);
 
-// $new_string = implode('|', $physicists_array);
+$new_string = implode('|', $physicists_array);
 
-// echo $new_string . PHP_EOL;
+echo $new_string . PHP_EOL;
 //=============================================================
 function humanized_list($string, $sort = false)
 {
